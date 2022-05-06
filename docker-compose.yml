@@ -1,0 +1,21 @@
+version: '3'
+services:
+  web2:
+    container_name: web2
+    build: ./web2
+    ports:
+      - 8080:8080
+    volumes:
+      - ./web2:/app
+  web3:
+    container_name: web3
+    build: ./web3
+    ports:
+      - 3000:3000
+    volumes:
+      - ./web3:/usr/src/app
+      - /usr/src/app/node_modules
+networks:
+  default:
+      external: true
+      name: hokusai-network
